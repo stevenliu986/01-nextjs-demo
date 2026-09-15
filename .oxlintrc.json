@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "nextjs", "jsx-a11y", "import"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
+  "ignorePatterns": [".next", "node_modules", "dist"],
+  "rules": {
+    "no-console": "warn",
+    "typescript/no-explicit-any": "warn",
+    "react/jsx-key": "error",
+    "nextjs/no-img-element": "error"
+  }
+}
