@@ -31,7 +31,7 @@ const users = [
     { "id": 30, "name": "Daisy", "email": "daisy@example.com", "gender": "female", "age": 24 }
 ] as const;
 
-export function getUsers() {
+export function getUsers(): Promise<typeof users> {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(users);
