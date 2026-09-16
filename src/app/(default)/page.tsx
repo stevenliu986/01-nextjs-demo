@@ -1,13 +1,7 @@
-import {getUsers} from "../../api/dataSource";
+import {getUsers, users} from "../../api/dataSource";
 import UserList from "./component/UserList";
 
-type User = {
-  id: number;
-  name: string;
-  email: string;
-  gender: string;
-  age: number;
-};
+type User = typeof users[number];
 
 export default async function Home() {
   const users = await getUsers() as User[];

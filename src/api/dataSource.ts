@@ -1,4 +1,4 @@
-const users = [
+export const users = [
     { "id": 1, "name": "Alice", "email": "alice@example.com", "gender": "female", "age": 25 },
     { "id": 2, "name": "Bob", "email": "bob@example.com", "gender": "male", "age": 30 },
     { "id": 3, "name": "Charlie", "email": "charlie@example.com", "gender": "male", "age": 22 },
@@ -29,7 +29,7 @@ const users = [
     { "id": 28, "name": "Bella", "email": "bella@example.com", "gender": "female", "age": 27 },
     { "id": 29, "name": "Carter", "email": "carter@example.com", "gender": "male", "age": 29 },
     { "id": 30, "name": "Daisy", "email": "daisy@example.com", "gender": "female", "age": 24 }
-] as const;
+];
 
 export function getUsers(): Promise<typeof users> {
     return new Promise((resolve) => {
