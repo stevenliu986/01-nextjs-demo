@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 用户目录
 
-## Getting Started
+基于 Next.js App Router 的用户目录练习项目。当前页面从本地数据源加载用户列表，后续按需求逐步完善搜索、筛选、排序及用户详情等能力。
 
-First, run the development server:
+## 当前状态
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 用户目录基础展示：待开发
+- 用户搜索与筛选：待开发
+- 用户详情：待开发
+- 数据加载、错误与刷新：待开发
+
+## 用户搜索与筛选需求
+
+本迭代需要为用户列表提供以下能力：
+
+- 按用户名搜索，支持与其他条件组合。
+- 按性别筛选，选项包括“全部”“男”“女”，默认选择“全部”。
+- 按年龄区间筛选，最小年龄和最大年龄均可单独填写或组合填写。
+- 按年龄升序或降序排序，默认不排序。
+- 所有搜索、筛选和排序条件同时生效，并实时更新列表。
+- 在列表上方显示当前结果数量，格式为 `共 N 位用户`。
+- 无匹配结果时显示 `共 0 位用户` 及适当的空结果提示。
+- 提供“重置”按钮，恢复所有条件的默认值并显示完整用户列表。
+
+### 输入校验
+
+- 年龄必须是有效的非负整数。
+- 最小年龄不能大于最大年龄。
+- 年龄区间无效时显示明确错误提示，并阻止无效条件生效。
+
+完整需求见：[用户搜索与筛选功能需求](requirements/2026-09-16-user-search-filter-requirements.md)。
+
+## 项目结构
+
+```text
+src/
+├── api/
+│   └── dataSource.ts        # 本地用户数据源
+└── app/
+    ├── (default)/
+    │   ├── page.tsx         # 用户目录页面
+    │   └── component/
+    │       └── UserList.tsx # 用户列表组件
+    └── globals.css           # 全局样式
+requirements/                 # 按功能拆分的需求文档
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 开始使用
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+安装依赖：
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+```
 
-## Learn More
+启动开发服务器：
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+打开 [http://localhost:3000](http://localhost:3000) 查看页面。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 常用命令
 
-## Deploy on Vercel
+```bash
+pnpm dev      # 启动开发服务器
+pnpm build    # 构建生产版本
+pnpm start    # 启动生产服务器
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 技术栈
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- pnpm
+
+## 需求索引
+
+各功能需求及其状态见：[requirements/README.md](requirements/README.md)。
